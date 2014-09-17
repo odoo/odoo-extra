@@ -30,7 +30,7 @@ class ir_actions_server(osv.osv):
     _columns = {
         'debug': fields.boolean('Debug',
                                 help="Run this server action through the Python debugger.\n"
-                                "This only works if the server has been launched with the --debug_server_actions flag, "
+                                "This only works if the server has been launched with the --debug flag, "
                                 "and aids in local development of new server actions."),
     }
 
