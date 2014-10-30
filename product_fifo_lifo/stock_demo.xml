@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="stock.stock_location_shop1" model="stock.location">
+            <field name="company_id" ref="stock.res_company_2"/>
+        </record>
+
+        <record id="stock.stock_location_intermediatelocation0" model="stock.location">
+            <field name="company_id" eval="False"/>
+            <field name="usage">transit</field>
+        </record>
+
+    </data>
+</openerp>
+

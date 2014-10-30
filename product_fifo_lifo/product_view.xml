@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_product_standard_price_form_lifo_fifo" model="ir.ui.view">
+            <field name="name">product.product.standard.price.form.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="stock.view_product_standard_price_form"/>
+            <field name="arch" type="xml">
+                <field name="standard_price" position="replace">
+                    <field name="standard_price" attrs="{'readonly':[('valuation','=','real_time'), ('cost_method', 'in', ['standard', 'average'])]}" nolabel="1"/>
+                </field>
+                <button string="- update" position="replace" version="7.0">
+                    <button name="%(stock.action_view_change_standard_price)d" string="- update"
+                        type="action" attrs="{'invisible':['|', ('valuation','!=', 'real_time'), ('cost_method', 'not in', ['standard', 'average'])]}"
+                        class="oe_link" groups="product.group_costing_method"/>
+                </button>
+            </field>
+        </record>
+
+        <record id="view_purchase_configuration_lifo_fifo" model="ir.ui.view">
+            <field name="name">purchase settings</field>
+            <field name="model">purchase.config.settings</field>
+            <field name="inherit_id" ref="purchase.view_purchase_configuration"/>
+            <field name="arch" type="xml">
+                <field name="group_costing_method" position="replace">
+                    <field name="group_costing_method" class="oe_inline" on_change="onchange_group_costing_method(group_costing_method)"/>
+                    <field name="group_stock_inventory_valuation" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

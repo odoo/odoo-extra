@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_report_in_out_picking_tree_inherit" model="ir.ui.view">
+            <field name="name">report.mrp.inout.tree</field>
+            <field name="model">report.mrp.inout</field>
+            <field name="inherit_id" ref="mrp.view_report_in_out_picking_tree"/>
+            <field name="arch" type="xml">
+                <field name="value" position="after">
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_report_in_out_picking_form_inherit" model="ir.ui.view">
+            <field name="name">report.mrp.inout.form</field>
+            <field name="model">report.mrp.inout</field>
+            <field name="inherit_id" ref="mrp.view_report_in_out_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="value" position="after">
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_report_in_out_picking_graph_inherit" model="ir.ui.view">
+            <field name="name">report.mrp.inout.graph</field>
+            <field name="model">report.mrp.inout</field>
+            <field name="inherit_id" ref="mrp.view_report_in_out_picking_graph"/>
+            <field name="arch" type="xml">
+                <field name="value" position="after">
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
