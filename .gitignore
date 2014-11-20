@@ -1,0 +1,7 @@
+# dotfiles
+.*
+!.gitignore
+# compiled python files
+*.py[co]
+# emacs backup files
+*~
