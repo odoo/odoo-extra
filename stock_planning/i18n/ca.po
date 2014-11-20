@@ -1,0 +1,1235 @@
+# Catalan translation for openobject-addons
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-02-08 00:37+0000\n"
+"PO-Revision-Date: 2012-02-17 09:10+0000\n"
+"Last-Translator: mgaja (GrupoIsep.com) <Unknown>\n"
+"Language-Team: Catalan <ca@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-05-29 07:25+0000\n"
+"X-Generator: Launchpad (build 16640)\n"
+
+#. module: stock_planning
+#: code:addons/stock_planning/wizard/stock_planning_createlines.py:73
+#, python-format
+msgid ""
+"No forecasts for selected period or no products in selected category !"
+msgstr ""
+"No hi ha previsions per al període seleccionat o no hi ha productes en la "
+"categoria seleccionada!"
+
+#. module: stock_planning
+#: help:stock.planning,stock_only:0
+msgid ""
+"Check to calculate stock location of selected warehouse only. If not "
+"selected calculation is made for input, stock and output location of "
+"warehouse."
+msgstr ""
+"Marqueu aquesta opció per calcular l'estoc només de la ubicació estoc del "
+"magatzem seleccionat. Si no es marca, el càlcul es realitza per a les "
+"ubicacions d'entrada i sortida d'estoc del magatzem."
+
+#. module: stock_planning
+#: field:stock.planning,maximum_op:0
+msgid "Maximum Rule"
+msgstr "Regla màxim"
+
+#. module: stock_planning
+#: view:stock.planning:0
+#: view:stock.sale.forecast:0
+msgid "Group By..."
+msgstr "Agrupa per..."
+
+#. module: stock_planning
+#: help:stock.sale.forecast,product_amt:0
+msgid ""
+"Forecast value which will be converted to Product Quantity according to "
+"prices."
+msgstr ""
+"Valor de la previsió que serà convertit en quantitat de producte en funció "
+"de preus."
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:626
+#: code:addons/stock_planning/stock_planning.py:670
+#, python-format
+msgid "Incoming Left must be greater than 0 !"
+msgstr "Entrades restants ha de ser major que 0!"
+
+#. module: stock_planning
+#: help:stock.planning,outgoing_before:0
+msgid ""
+"Planned Out in periods before calculated. Between start date of current "
+"period and one day before start of calculated period."
+msgstr ""
+"Sortides planificades en períodes anteriors al calculat. Entreu la data "
+"d'inici del període actual i un dia abans del començament del període "
+"calculat."
+
+#. module: stock_planning
+#: help:stock.sale.forecast.createlines,warehouse_id:0
+msgid ""
+"Warehouse which forecasts will concern. If during stock planning you will "
+"need sales forecast for all warehouses choose any warehouse now."
+msgstr ""
+"Magatzem al que les previsions es refereixen. Si durant la planificació "
+"d'estoc necessita previsions de vendes per a tots els magatzems de triar "
+"qualsevol magatzem ara."
+
+#. module: stock_planning
+#: field:stock.planning,outgoing_left:0
+msgid "Expected Out"
+msgstr "Sortides previstes"
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+msgid " "
+msgstr " "
+
+#. module: stock_planning
+#: field:stock.planning,incoming_left:0
+msgid "Incoming Left"
+msgstr "Entrades restants"
+
+#. module: stock_planning
+#: view:stock.sale.forecast.createlines:0
+msgid "Create Forecasts Lines"
+msgstr "Crea línies de previsions"
+
+#. module: stock_planning
+#: help:stock.planning,outgoing:0
+msgid "Quantity of all confirmed outgoing moves in calculated Period."
+msgstr "Quantitats de totes les sortides confirmades en el període calculat."
+
+#. module: stock_planning
+#: view:stock.period.createlines:0
+msgid "Create Daily Periods"
+msgstr "Crea períodes diaris"
+
+#. module: stock_planning
+#: view:stock.planning:0
+#: field:stock.planning,company_id:0
+#: field:stock.planning.createlines,company_id:0
+#: view:stock.sale.forecast:0
+#: field:stock.sale.forecast,company_id:0
+#: field:stock.sale.forecast.createlines,company_id:0
+msgid "Company"
+msgstr "Companyia"
+
+#. module: stock_planning
+#: help:stock.planning,warehouse_forecast:0
+msgid ""
+"All sales forecasts for selected Warehouse of selected Product during "
+"selected Period."
+msgstr ""
+"Totes les previsions de vendes per als magatzems seleccionats de productes "
+"seleccionats durant el període seleccionat."
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Minimum Stock Rule Indicators"
+msgstr "Indicadors de regles d'estoc mínim"
+
+#. module: stock_planning
+#: help:stock.sale.forecast.createlines,period_id:0
+msgid "Period which forecasts will concern."
+msgstr "Període al que concerneixen les previsions."
+
+#. module: stock_planning
+#: field:stock.planning,stock_only:0
+msgid "Stock Location Only"
+msgstr "Només ubicacions d'estoc"
+
+#. module: stock_planning
+#: help:stock.planning,already_out:0
+msgid ""
+"Quantity which is already dispatched out of this warehouse in current period."
+msgstr ""
+"Quantitats que ja es van enviar fora d'aquest magatzem en el període actual."
+
+#. module: stock_planning
+#: field:stock.planning,incoming:0
+msgid "Confirmed In"
+msgstr "Entrades confirmades"
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Current Period Situation"
+msgstr "Situació del període actual"
+
+#. module: stock_planning
+#: model:ir.actions.act_window,help:stock_planning.action_stock_period_createlines_form
+msgid ""
+"This wizard helps with the creation of stock planning periods. These periods "
+"are independent of financial periods. If you need periods other than day-, "
+"week- or month-based, you may also add then manually."
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.period.createlines:0
+msgid "Create Monthly Periods"
+msgstr "Crea períodes mensuals"
+
+#. module: stock_planning
+#: model:ir.model,name:stock_planning.model_stock_period_createlines
+msgid "stock.period.createlines"
+msgstr "estoc.període.crealínies"
+
+#. module: stock_planning
+#: field:stock.planning,outgoing_before:0
+msgid "Planned Out Before"
+msgstr "Sortides planificades abans"
+
+#. module: stock_planning
+#: field:stock.planning.createlines,forecasted_products:0
+msgid "All Products with Forecast"
+msgstr "Tots els productes amb previsió"
+
+#. module: stock_planning
+#: help:stock.planning,maximum_op:0
+msgid "Maximum quantity set in Minimum Stock Rules for this Warehouse"
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+msgid "Periods :"
+msgstr "Períodes :"
+
+#. module: stock_planning
+#: help:stock.planning,procure_to_stock:0
+msgid ""
+"Check to make procurement to stock location of selected warehouse. If not "
+"selected procurement will be made into input location of warehouse."
+msgstr ""
+
+#. module: stock_planning
+#: help:stock.planning,already_in:0
+msgid ""
+"Quantity which is already picked up to this warehouse in current period."
+msgstr ""
+"Quantitats que ja han estat recollides en aquest magatzem en el període "
+"actual."
+
+#. module: stock_planning
+#: code:addons/stock_planning/wizard/stock_planning_forecast.py:60
+#, python-format
+msgid "No products in selected category !"
+msgstr "No hi ha productes en la categoria seleccionada!"
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+msgid "Stock and Sales Forecast"
+msgstr "Previsions d'estoc i vendes"
+
+#. module: stock_planning
+#: model:ir.model,name:stock_planning.model_stock_sale_forecast
+msgid "stock.sale.forecast"
+msgstr "estoc.vendes.previsió"
+
+#. module: stock_planning
+#: field:stock.planning,to_procure:0
+msgid "Planned In"
+msgstr "Entrades planificades"
+
+#. module: stock_planning
+#: field:stock.planning,stock_simulation:0
+msgid "Stock Simulation"
+msgstr "Simulació d'estoc"
+
+#. module: stock_planning
+#: model:ir.model,name:stock_planning.model_stock_planning_createlines
+msgid "stock.planning.createlines"
+msgstr "estoc.planificació.crealínies"
+
+#. module: stock_planning
+#: help:stock.planning,incoming_before:0
+msgid ""
+"Confirmed incoming in periods before calculated (Including Already In). "
+"Between start date of current period and one day before start of calculated "
+"period."
+msgstr ""
+"Entrades confirmades en períodes anteriors al calculat (incloent les "
+"entrades realitzades). Entreu la data d'inici del període actual i un dia "
+"abans del començament del període calculat."
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+msgid "Search  Sales Forecast"
+msgstr "Cerca previsions de vendes"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period5_per_user:0
+msgid "This User Period5"
+msgstr "El període d'aquest usuari5"
+
+#. module: stock_planning
+#: help:stock.planning,history:0
+msgid "History of procurement or internal supply of this planning line."
+msgstr ""
+"Historial de proveïment o subministrament intern d'aquesta línia de "
+"planificació."
+
+#. module: stock_planning
+#: help:stock.planning,company_forecast:0
+msgid ""
+"All sales forecasts for whole company (for all Warehouses) of selected "
+"Product during selected Period."
+msgstr ""
+"Totes les previsions de vendes per a tota l'empresa (per a tots els "
+"magatzems) dels productes seleccionats durant el període seleccionat."
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period1_per_user:0
+msgid "This User Period1"
+msgstr "Aquest usuari periode1"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period3_per_user:0
+msgid "This User Period3"
+msgstr "Aquest usuari periode3"
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Stock Planning"
+msgstr "Planificació d'estoc"
+
+#. module: stock_planning
+#: field:stock.planning,minimum_op:0
+msgid "Minimum Rule"
+msgstr "Regla de mínims"
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Procure Incoming Left"
+msgstr "Entrades proveïment restant"
+
+#. module: stock_planning
+#: view:stock.planning.createlines:0
+#: view:stock.sale.forecast.createlines:0
+msgid "Create"
+msgstr "Crea"
+
+#. module: stock_planning
+#: model:ir.actions.act_window,name:stock_planning.action_view_stock_planning_form
+#: model:ir.ui.menu,name:stock_planning.menu_stock_planning
+#: model:ir.ui.menu,name:stock_planning.menu_stock_planning_manual
+#: view:stock.planning:0
+msgid "Master Procurement Schedule"
+msgstr "Pla mestre de proveïment"
+
+#. module: stock_planning
+#: field:stock.planning,line_time:0
+msgid "Past/Future"
+msgstr "Passat/Futur"
+
+#. module: stock_planning
+#: view:stock.period:0
+#: field:stock.period,state:0
+#: field:stock.planning,state:0
+#: field:stock.sale.forecast,state:0
+msgid "State"
+msgstr "Estat"
+
+#. module: stock_planning
+#: help:stock.sale.forecast.createlines,product_categ_id:0
+msgid "Product Category of products which created forecasts will concern."
+msgstr "Categoria dels productes dels quals es crearan les previsions ."
+
+#. module: stock_planning
+#: model:ir.model,name:stock_planning.model_stock_period
+msgid "stock period"
+msgstr "període estoc"
+
+#. module: stock_planning
+#: model:ir.model,name:stock_planning.model_stock_sale_forecast_createlines
+msgid "stock.sale.forecast.createlines"
+msgstr "estoc.venda.previsió.crealínies"
+
+#. module: stock_planning
+#: field:stock.planning,warehouse_id:0
+#: field:stock.planning.createlines,warehouse_id:0
+#: field:stock.sale.forecast,warehouse_id:0
+#: field:stock.sale.forecast.createlines,warehouse_id:0
+msgid "Warehouse"
+msgstr "Magatzem"
+
+#. module: stock_planning
+#: help:stock.planning,stock_simulation:0
+msgid ""
+"Stock simulation at the end of selected Period.\n"
+" For current period it is: \n"
+"Initial Stock - Already Out + Already In - Expected Out + Incoming Left.\n"
+"For periods ahead it is: \n"
+"Initial Stock - Planned Out Before + Incoming Before - Planned Out + Planned "
+"In."
+msgstr ""
+"Simulació d'estoc al final del període seleccionat.\n"
+" Per al període actual és: \n"
+"Estoc inicial – sortides + entrades – sortides previstes + entrades "
+"esperades.\n"
+"Per als següents períodes és: \n"
+"Estoc inicial – sortides previstes anteriors + entrades anteriors – sortides "
+"previstes + entrades previstes."
+
+#. module: stock_planning
+#: help:stock.sale.forecast,analyze_company:0
+msgid "Check this box to see the sales for whole company."
+msgstr ""
+"Seleccioneu aquesta casella per veure les vendes de tota l'a companyia."
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+msgid "Per Department :"
+msgstr "Per departament:"
+
+#. module: stock_planning
+#: field:stock.planning,incoming_before:0
+msgid "Incoming Before"
+msgstr "Entrades abans"
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:641
+#, python-format
+msgid ""
+" Procurement created by MPS for user: %s   Creation Date: %s                 "
+"                        \n"
+" For period: %s                                         \n"
+" according to state:                                         \n"
+" Warehouse Forecast: %s                                         \n"
+" Initial Stock: %s                                         \n"
+" Planned Out: %s    Planned In: %s                                         \n"
+" Already Out: %s    Already In: %s                                         \n"
+" Confirmed Out: %s    Confirmed In: %s                                       "
+"  \n"
+" Planned Out Before: %s    Confirmed In Before: %s                           "
+"              \n"
+" Expected Out: %s    Incoming Left: %s                                       "
+"  \n"
+" Stock Simulation: %s    Minimum stock: %s"
+msgstr ""
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:626
+#: code:addons/stock_planning/stock_planning.py:670
+#: code:addons/stock_planning/stock_planning.py:672
+#: code:addons/stock_planning/stock_planning.py:674
+#: code:addons/stock_planning/wizard/stock_planning_createlines.py:73
+#: code:addons/stock_planning/wizard/stock_planning_forecast.py:60
+#, python-format
+msgid "Error !"
+msgstr "Error!"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_user_id:0
+msgid "This User"
+msgstr "Aquest usuari"
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Forecasts"
+msgstr "Previsions"
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Supply from Another Warehouse"
+msgstr "Proveir des d'un altre magatzem"
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Calculate Planning"
+msgstr "Calcula planificació"
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:146
+#, python-format
+msgid "Invalid action !"
+msgstr "Acció no vàlida!"
+
+#. module: stock_planning
+#: help:stock.planning,stock_start:0
+msgid "Stock quantity one day before current period."
+msgstr "Quantitat d'estoc un dia abans del període actual."
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Procurement history"
+msgstr ""
+
+#. module: stock_planning
+#: help:stock.planning,product_uom:0
+msgid ""
+"Unit of Measure used to show the quantities of stock calculation.You can use "
+"units from default category or from second category (UoS category)."
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.period.createlines:0
+msgid "Create Weekly Periods"
+msgstr "Crea períodes setmanals"
+
+#. module: stock_planning
+#: model:ir.actions.act_window,help:stock_planning.action_stock_period_form
+msgid ""
+"Stock periods are used for stock planning. Stock periods are independent of "
+"account periods. You can use wizard for creating periods and review them "
+"here."
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Calculated Period Simulation"
+msgstr "Simulació calculada del període"
+
+#. module: stock_planning
+#: view:stock.period.createlines:0
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period4_per_user:0
+msgid "This User Period4"
+msgstr "Aquest usuari període 4"
+
+#. module: stock_planning
+#: view:stock.period:0
+msgid "Stock and Sales Period"
+msgstr "Període d'estoc i vendes"
+
+#. module: stock_planning
+#: field:stock.planning,company_forecast:0
+msgid "Company Forecast"
+msgstr "Previsió de la companyia"
+
+#. module: stock_planning
+#: help:stock.planning,minimum_op:0
+msgid "Minimum quantity set in Minimum Stock Rules for this Warehouse"
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+msgid "Per User :"
+msgstr "Per usuari :"
+
+#. module: stock_planning
+#: help:stock.planning.createlines,warehouse_id:0
+msgid "Warehouse which planning will concern."
+msgstr "Magatzem que es referirà la planificació."
+
+#. module: stock_planning
+#: field:stock.sale.forecast,user_id:0
+msgid "Created/Validated by"
+msgstr "Creat/Validat per"
+
+#. module: stock_planning
+#: field:stock.planning,warehouse_forecast:0
+msgid "Warehouse Forecast"
+msgstr "Previsió magatzem"
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:674
+#, python-format
+msgid ""
+"You must specify a Source Warehouse different than calculated (destination) "
+"Warehouse !"
+msgstr ""
+"Heu d'especificar un magatzem d'origen diferent del magatzem calculat (de "
+"destinació)!"
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:146
+#, python-format
+msgid "Cannot delete a validated sales forecast!"
+msgstr ""
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period5_per_company:0
+msgid "This Company Period5"
+msgstr "El període d'aquesta companyia5"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,product_uom:0
+msgid "Product UoM"
+msgstr "UdM de producte"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period1_per_company:0
+msgid "This Company Period1"
+msgstr ""
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period2_per_company:0
+msgid "This Company Period2"
+msgstr "El període d'aquesta companyia2"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period3_per_company:0
+msgid "This Company Period3"
+msgstr "El període d'aquesta companyia3"
+
+#. module: stock_planning
+#: field:stock.period,date_start:0
+#: field:stock.period.createlines,date_start:0
+msgid "Start Date"
+msgstr "Data d'inici"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period2_per_user:0
+msgid "This User Period2"
+msgstr "El període d'aquest usuari2"
+
+#. module: stock_planning
+#: field:stock.planning,confirmed_forecasts_only:0
+msgid "Validated Forecasts"
+msgstr "Previsions validades"
+
+#. module: stock_planning
+#: help:stock.planning.createlines,product_categ_id:0
+msgid ""
+"Planning will be created for products from Product Category selected by this "
+"field. This field is ignored when you check \"All Forecasted Product\" box."
+msgstr ""
+"Es crearà la planificació per als productes de la categoria de productes "
+"seleccionada amb aquest camp. Aquest camp s'ignora quan es marca l'opció "
+"\"Totes les previsions de productes”."
+
+#. module: stock_planning
+#: field:stock.planning,planned_outgoing:0
+msgid "Planned Out"
+msgstr "Sortides planificades"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,product_qty:0
+msgid "Forecast Quantity"
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Forecast"
+msgstr "Previsió"
+
+#. module: stock_planning
+#: selection:stock.period,state:0
+#: selection:stock.planning,state:0
+#: selection:stock.sale.forecast,state:0
+msgid "Draft"
+msgstr "Esborrany"
+
+#. module: stock_planning
+#: view:stock.period:0
+msgid "Closed"
+msgstr "Tancat"
+
+#. module: stock_planning
+#: view:stock.planning:0
+#: view:stock.sale.forecast:0
+msgid "Warehouse "
+msgstr "Magatzem "
+
+#. module: stock_planning
+#: help:stock.sale.forecast,product_uom:0
+msgid ""
+"Unit of Measure used to show the quantities of stock calculation.You can use "
+"units form default category or from second category (UoS category)."
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Planning and Situation for Calculated Period"
+msgstr "Planificació i situació per al període calculat"
+
+#. module: stock_planning
+#: help:stock.planning,planned_outgoing:0
+msgid ""
+"Enter planned outgoing quantity from selected Warehouse during the selected "
+"Period of selected Product. To plan this value look at Confirmed Out or "
+"Sales Forecasts. This value should be equal or greater than Confirmed Out."
+msgstr ""
+"Introduïu la quantitat sortint planificada per al magatzem seleccionat "
+"durant el període seleccionat i per al producte seleccionat. Per planificar "
+"aquest valor podeu fixar-se en les sortides confirmades o les previsions de "
+"vendes. Aquest valor hauria de ser igual o superior a les sortides "
+"confirmades."
+
+#. module: stock_planning
+#: view:stock.period:0
+msgid "Current Periods"
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Internal Supply"
+msgstr "Subministrament intern"
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:724
+#, python-format
+msgid "%s Pick List %s (%s,  %s) %s %s \n"
+msgstr "%s Llista de selecció %s (%s,  %s) %s %s \n"
+
+#. module: stock_planning
+#: model:ir.actions.act_window,name:stock_planning.action_stock_sale_forecast_createlines_form
+#: model:ir.ui.menu,name:stock_planning.menu_stock_sale_forecast_createlines
+msgid "Create Sales Forecasts"
+msgstr "Crea previsions de vendes"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period4_id:0
+msgid "Period4"
+msgstr "Període4"
+
+#. module: stock_planning
+#: field:stock.period,name:0
+#: field:stock.period.createlines,name:0
+msgid "Period Name"
+msgstr "Nom del període"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period2_id:0
+msgid "Period2"
+msgstr "Període2"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period3_id:0
+msgid "Period3"
+msgstr "Període3"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period1_id:0
+msgid "Period1"
+msgstr "Període1"
+
+#. module: stock_planning
+#: model:ir.actions.act_window,help:stock_planning.action_stock_planning_createlines_form
+msgid ""
+"This wizard helps create MPS planning lines for a given selected period and "
+"warehouse, so you don't have to create them one by one. The wizard doesn't "
+"duplicate lines if they already exist for this selection."
+msgstr ""
+
+#. module: stock_planning
+#: field:stock.planning,outgoing:0
+msgid "Confirmed Out"
+msgstr "Sortides confirmades"
+
+#. module: stock_planning
+#: model:ir.actions.act_window,name:stock_planning.action_stock_planning_createlines_form
+#: model:ir.ui.menu,name:stock_planning.menu_stock_planning_createlines
+#: view:stock.planning.createlines:0
+msgid "Create Stock Planning Lines"
+msgstr "Crea línies de planificació d'estoc"
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "General Info"
+msgstr "Informació general"
+
+#. module: stock_planning
+#: model:ir.actions.act_window,name:stock_planning.action_view_stock_sale_forecast_form
+msgid "Sales Forecast"
+msgstr "Previsió de vendes"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period1_per_warehouse:0
+msgid "This Warehouse Period1"
+msgstr "Peridodo d'aquest magatzem1"
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+msgid "Sales history"
+msgstr "Històric de vendes"
+
+#. module: stock_planning
+#: field:stock.planning,supply_warehouse_id:0
+msgid "Source Warehouse"
+msgstr "Magatzem d'origen"
+
+#. module: stock_planning
+#: help:stock.sale.forecast,product_qty:0
+msgid "Forecast Product quantity."
+msgstr ""
+
+#. module: stock_planning
+#: field:stock.planning,stock_supply_location:0
+msgid "Stock Supply Location"
+msgstr "Ubicació proveïment d'estoc"
+
+#. module: stock_planning
+#: help:stock.period.createlines,date_stop:0
+msgid "Ending date for planning period."
+msgstr "Data de finalització per al període planificat."
+
+#. module: stock_planning
+#: help:stock.planning.createlines,forecasted_products:0
+msgid ""
+"Check this box to create planning for all products having any forecast for "
+"selected Warehouse and Period. Product Category field will be ignored."
+msgstr ""
+"Marqueu aquesta opció per crear la planificació de tots els productes que "
+"tinguin qualsevol previsió en el magatzem i període seleccionat. El camp "
+"categoria de producte serà ignorat."
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:632
+#: code:addons/stock_planning/stock_planning.py:678
+#: code:addons/stock_planning/stock_planning.py:702
+#, python-format
+msgid "MPS(%s) %s"
+msgstr "MPS(%s) %s"
+
+#. module: stock_planning
+#: field:stock.planning,already_in:0
+msgid "Already In"
+msgstr "Entrades realitzades"
+
+#. module: stock_planning
+#: field:stock.planning,product_uom_categ:0
+#: field:stock.planning,product_uos_categ:0
+#: field:stock.sale.forecast,product_uom_categ:0
+msgid "Product UoM Category"
+msgstr "Categoria UdM producte"
+
+#. module: stock_planning
+#: model:ir.actions.act_window,help:stock_planning.action_view_stock_sale_forecast_form
+msgid ""
+"This quantity sales forecast is an indication for Stock Planner to make "
+"procurement manually or to complement automatic procurement. You can use "
+"manual procurement with this forecast when some periods are exceptional for "
+"usual minimum stock rules."
+msgstr ""
+
+#. module: stock_planning
+#: model:ir.actions.act_window,help:stock_planning.action_view_stock_planning_form
+msgid ""
+"The Master Procurement Schedule can be the main driver for warehouse "
+"replenishment, or can complement the automatic MRP scheduling (minimum stock "
+"rules, etc.).\n"
+"Each MPS line gives you a pre-computed overview of the incoming and outgoing "
+"quantities of a given product for a given Stock Period in a given Warehouse, "
+"based on the current and future stock levels,\n"
+"as well as the planned stock moves. The forecast quantities can be altered "
+"manually, and when satisfied with resulting (simulated) Stock quantity, you "
+"can trigger the procurement of what is missing to reach your desired "
+"quantities"
+msgstr ""
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:685
+#, python-format
+msgid ""
+"Pick created from MPS by user: %s   Creation Date: %s                        "
+"             \n"
+"For period: %s   according to state:                                     \n"
+" Warehouse Forecast: %s                                     \n"
+" Initial Stock: %s                                     \n"
+" Planned Out: %s  Planned In: %s                                     \n"
+" Already Out: %s  Already In: %s                                     \n"
+" Confirmed Out: %s   Confirmed In: %s                                     \n"
+" Planned Out Before: %s   Confirmed In Before: %s                            "
+"         \n"
+" Expected Out: %s   Incoming Left: %s                                     \n"
+" Stock Simulation: %s   Minimum stock: %s "
+msgstr ""
+
+#. module: stock_planning
+#: field:stock.planning,period_id:0
+#: field:stock.planning.createlines,period_id:0
+#: field:stock.sale.forecast,period_id:0
+#: field:stock.sale.forecast.createlines,period_id:0
+msgid "Period"
+msgstr "Període"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,product_uos_categ:0
+msgid "Product UoS Category"
+msgstr "Categoria UdV producte"
+
+#. module: stock_planning
+#: field:stock.planning,active_uom:0
+#: field:stock.sale.forecast,active_uom:0
+msgid "Active UoM"
+msgstr "UdM activa"
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Search Stock Planning"
+msgstr "Cerca planificació d'estoc"
+
+#. module: stock_planning
+#: field:stock.sale.forecast.createlines,copy_forecast:0
+msgid "Copy Last Forecast"
+msgstr "Copia última previsió"
+
+#. module: stock_planning
+#: help:stock.sale.forecast,product_id:0
+msgid "Shows which product this forecast concerns."
+msgstr "Mostra a quin producte es refereix aquesta previsió."
+
+#. module: stock_planning
+#: selection:stock.planning,state:0
+msgid "Done"
+msgstr "Fet"
+
+#. module: stock_planning
+#: field:stock.period.createlines,period_ids:0
+msgid "Periods"
+msgstr "Períodes"
+
+#. module: stock_planning
+#: model:ir.ui.menu,name:stock_planning.menu_stock_period_creatlines
+msgid "Create Stock Periods"
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.period:0
+#: selection:stock.period,state:0
+#: view:stock.planning.createlines:0
+#: view:stock.sale.forecast.createlines:0
+msgid "Close"
+msgstr "Tanca"
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+#: selection:stock.sale.forecast,state:0
+msgid "Validated"
+msgstr "Validat"
+
+#. module: stock_planning
+#: view:stock.period:0
+#: selection:stock.period,state:0
+msgid "Open"
+msgstr "Obre"
+
+#. module: stock_planning
+#: help:stock.sale.forecast.createlines,copy_forecast:0
+msgid "Copy quantities from last Stock and Sale Forecast."
+msgstr "Copia quantitats des de l'estoc passat i previsió de vendes"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period1_per_dept:0
+msgid "This Dept Period1"
+msgstr "El període d'aquest dept.1"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period3_per_dept:0
+msgid "This Dept Period3"
+msgstr "El període d'aquest dept.3"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period2_per_dept:0
+msgid "This Dept Period2"
+msgstr "El període d'aquest dept.2"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period5_per_dept:0
+msgid "This Dept Period5"
+msgstr "El període d'aquest dept.5"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period4_per_dept:0
+msgid "This Dept Period4"
+msgstr "El període d'aquest dept.4"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period2_per_warehouse:0
+msgid "This Warehouse Period2"
+msgstr "El període d'aquest magatzem2"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period3_per_warehouse:0
+msgid "This Warehouse Period3"
+msgstr "El període d'aquest magatzem3"
+
+#. module: stock_planning
+#: help:stock.planning,stock_supply_location:0
+msgid ""
+"Check to supply from Stock location of Supply Warehouse. If not checked "
+"supply will be made from Output location of Supply Warehouse. Used in "
+"'Supply from Another Warehouse' with Supply Warehouse."
+msgstr ""
+
+#. module: stock_planning
+#: field:stock.sale.forecast,create_uid:0
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+msgid "Default UOM"
+msgstr "UdM per defecte"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period4_per_warehouse:0
+msgid "This Warehouse Period4"
+msgstr "El període d'aquest magatzem4"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period5_per_warehouse:0
+msgid "This Warehouse Period5"
+msgstr "El període d'aquest magatzem5"
+
+#. module: stock_planning
+#: view:stock.period:0
+msgid "Current"
+msgstr "Actual"
+
+#. module: stock_planning
+#: help:stock.planning,supply_warehouse_id:0
+msgid ""
+"Warehouse used as source in supply pick move created by 'Supply from Another "
+"Warehouse'."
+msgstr ""
+
+#. module: stock_planning
+#: model:ir.model,name:stock_planning.model_stock_planning
+msgid "stock.planning"
+msgstr "estoc.planificació"
+
+#. module: stock_planning
+#: help:stock.sale.forecast,warehouse_id:0
+msgid ""
+"Shows which warehouse this forecast concerns. If during stock planning you "
+"will need sales forecast for all warehouses choose any warehouse now."
+msgstr ""
+"Mostra a quin magatzem es refereix aquesta previsió. Si durant la "
+"planificació d'estoc necessita previsions de vendes per a tots els magatzems "
+"escolliu ara un magatzem qualsevol."
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:661
+#, python-format
+msgid "%s Procurement (%s,  %s) %s %s \n"
+msgstr ""
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyze_company:0
+msgid "Per Company"
+msgstr "Per empresa"
+
+#. module: stock_planning
+#: help:stock.planning,to_procure:0
+msgid ""
+"Enter quantity which (by your plan) should come in. Change this value and "
+"observe Stock simulation. This value should be equal or greater than "
+"Confirmed In."
+msgstr ""
+"Introduïu la quantitat que (pel seu pla) ha d'entrar. Canvieu aquest valor i "
+"observeu la simulació d'estoc. Aquest valor hauria de ser igual o superior a "
+"les entrades confirmades."
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period4_per_company:0
+msgid "This Company Period4"
+msgstr "El període d'aquesta companyia4"
+
+#. module: stock_planning
+#: help:stock.planning.createlines,period_id:0
+msgid "Period which planning will concern."
+msgstr "Període al que es refereix la planificació."
+
+#. module: stock_planning
+#: field:stock.planning,already_out:0
+msgid "Already Out"
+msgstr "Sortides realitzades"
+
+#. module: stock_planning
+#: help:stock.planning,product_id:0
+msgid "Product which this planning is created for."
+msgstr "Producte pel qual ha estat creada aquesta planificació."
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+msgid "Per Warehouse :"
+msgstr "Per magatzem:"
+
+#. module: stock_planning
+#: field:stock.planning,history:0
+msgid "Procurement History"
+msgstr "Històric proveïments"
+
+#. module: stock_planning
+#: help:stock.period.createlines,date_start:0
+msgid "Starting date for planning period."
+msgstr "Data inicial per al període planificat."
+
+#. module: stock_planning
+#: model:ir.actions.act_window,name:stock_planning.action_stock_period_createlines_form
+#: model:ir.actions.act_window,name:stock_planning.action_stock_period_form
+#: model:ir.ui.menu,name:stock_planning.menu_stock_period
+#: model:ir.ui.menu,name:stock_planning.menu_stock_period_main
+#: view:stock.period:0
+#: view:stock.period.createlines:0
+msgid "Stock Periods"
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "Stock"
+msgstr "Estoc"
+
+#. module: stock_planning
+#: help:stock.planning,incoming:0
+msgid "Quantity of all confirmed incoming moves in calculated Period."
+msgstr "Quantitats de totes les entrades confirmades en el període calculat."
+
+#. module: stock_planning
+#: field:stock.period,date_stop:0
+#: field:stock.period.createlines,date_stop:0
+msgid "End Date"
+msgstr "Data final"
+
+#. module: stock_planning
+#: view:stock.planning:0
+msgid "No Requisition"
+msgstr "Núm. sol·licitud"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: stock_planning
+#: help:stock.sale.forecast,period_id:0
+msgid "Shows which period this forecast concerns."
+msgstr "Mostra a quin període es refereix aquesta previsió."
+
+#. module: stock_planning
+#: field:stock.planning,product_uom:0
+msgid "UoM"
+msgstr "UdM"
+
+#. module: stock_planning
+#: view:stock.period:0
+msgid "Closed Periods"
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.planning:0
+#: field:stock.planning,product_id:0
+#: view:stock.sale.forecast:0
+#: field:stock.sale.forecast,product_id:0
+msgid "Product"
+msgstr "Producte"
+
+#. module: stock_planning
+#: model:ir.ui.menu,name:stock_planning.menu_stock_sale_forecast
+#: model:ir.ui.menu,name:stock_planning.menu_stock_sale_forecast_all
+#: view:stock.sale.forecast:0
+msgid "Sales Forecasts"
+msgstr "Previsions de vendes"
+
+#. module: stock_planning
+#: field:stock.planning.createlines,product_categ_id:0
+#: field:stock.sale.forecast.createlines,product_categ_id:0
+msgid "Product Category"
+msgstr "Categoria del producte"
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:672
+#, python-format
+msgid "You must specify a Source Warehouse !"
+msgstr "Heu d'especificar un magatzem origen!"
+
+#. module: stock_planning
+#: field:stock.planning,procure_to_stock:0
+msgid "Procure To Stock Location"
+msgstr "Proveïment a ubicació estoc"
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+msgid "Approve"
+msgstr "Aprova"
+
+#. module: stock_planning
+#: help:stock.planning,period_id:0
+msgid ""
+"Period for this planning. Requisition will be created for beginning of the "
+"period."
+msgstr ""
+"Període per a aquesta planificació. Es crearà una sol·licitud al principi "
+"del període."
+
+#. module: stock_planning
+#: code:addons/stock_planning/stock_planning.py:631
+#, python-format
+msgid "MPS planning for %s"
+msgstr ""
+
+#. module: stock_planning
+#: field:stock.planning,stock_start:0
+msgid "Initial Stock"
+msgstr "Estoc inicial"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,product_amt:0
+msgid "Product Amount"
+msgstr "Quantitat de producte"
+
+#. module: stock_planning
+#: help:stock.planning,confirmed_forecasts_only:0
+msgid ""
+"Check to take validated forecasts only. If not checked system takes "
+"validated and draft forecasts."
+msgstr ""
+"Marcque per utilitzar només les previsions validades. Si no es marca el "
+"sistema utilitza les previsions validades i esborrany."
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_period5_id:0
+msgid "Period5"
+msgstr "Període5"
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_warehouse_id:0
+msgid "This Warehouse"
+msgstr "Aquest magatzem"
+
+#. module: stock_planning
+#: help:stock.sale.forecast,user_id:0
+msgid "Shows who created this forecast, or who validated."
+msgstr "Mostra qui va crear aquesta previsió, o qui la va validar."
+
+#. module: stock_planning
+#: field:stock.sale.forecast,analyzed_team_id:0
+msgid "Sales Team"
+msgstr ""
+
+#. module: stock_planning
+#: help:stock.planning,incoming_left:0
+msgid ""
+"Quantity left to Planned incoming quantity. This is calculated difference "
+"between Planned In and Confirmed In. For current period Already In is also "
+"calculated. This value is used to create procurement for lacking quantity."
+msgstr ""
+"Quantitat restant de la quantitat entrant planificada. Es calcula mitjançant "
+"la diferència entre les entrades planificades i les entrades confirmades. "
+"Per al període actual les entrades realitzades també es calculen. Aquest "
+"valor s'utilitza per crear proveïments per a la quantitat restant."
+
+#. module: stock_planning
+#: help:stock.planning,outgoing_left:0
+msgid ""
+"Quantity expected to go out in selected period besides Confirmed Out. As a "
+"difference between Planned Out and Confirmed Out. For current period Already "
+"Out is also calculated"
+msgstr ""
+
+#. module: stock_planning
+#: view:stock.sale.forecast:0
+msgid "Calculate Sales History"
+msgstr "Calcula històric de vendes"
+
+#. module: stock_planning
+#: model:ir.actions.act_window,help:stock_planning.action_stock_sale_forecast_createlines_form
+msgid ""
+"This wizard helps create many forecast lines at once. After creating them "
+"you only have to fill in the forecast quantities. The wizard doesn't "
+"duplicate the line when another one exist for the same selection."
+msgstr ""
