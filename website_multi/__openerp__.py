@@ -17,5 +17,9 @@ OpenERP Multi Website
         'views/res_config.xml',
         'views/website_views.xml',
     ],
+    'demo' : [
+        'demo/website.xml',
+        'demo/template.xml',
+    ],
     'application': True,
 }
