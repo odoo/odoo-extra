@@ -133,7 +133,7 @@
                 <page string="Profiling" groups="base.group_user">
                   <button string="Use a questionnaire"
                       name="%(action_open_questionnaire)d" type="action" colspan="1"
-                      icon="gtk-justify-fill" />
+                      icon="fa-wpforms" />
                   <newline/>
                   <field name="answers_ids" colspan="4" nolabel="1"/>
                 </page>
