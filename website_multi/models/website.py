@@ -4,7 +4,7 @@ from openerp.osv import orm, fields, osv
 from openerp.addons.website.models.website import slugify
 from openerp.addons.web.http import request
 from werkzeug.exceptions import NotFound
-
+import werkzeug
 
 class website(orm.Model):
 
@@ -114,3 +114,29 @@ class ir_http(osv.AbstractModel):
                 dummy, request.uid = self.pool['ir.model.data'].get_object_reference(request.cr, openerp.SUPERUSER_ID, 'base', 'public_user')
         else:
             request.uid = request.session.uid
+
+    def _get_converters(self):
+        converters = super(ir_http, self)._get_converters()
+        converters['page'] = PageMultiWebsiteConverter
+        return converters
+
+
+class PageMultiWebsiteConverter(werkzeug.routing.PathConverter):
+    def generate(self, cr, uid, query=None, args={}, context=None):
+        View = request.registry['ir.ui.view']
+        dom = [('page', '=', True), '|', ('website_id', '=', request.website.id), ('website_id', '=', False)]
+        views = View.search_read(cr, uid, dom, fields=['key', 'xml_id', 'priority','write_date'], order='name', context=context)
+
+        for view in views:
+            key = view['key'] or view['xml_id'] or ''
+            xid = key.startswith('website.') and key[8:] or key
+
+            if xid=='homepage': continue
+            if query and query.lower() not in xid.lower(): continue
+            record = {'loc': xid}
+            if view['priority'] != 16:
+                record['__priority'] = min(round(view['priority'] / 32.0, 1), 1)
+            if view['write_date']:
+                record['__lastmod'] = view['write_date'][:10]
+            yield record
+
