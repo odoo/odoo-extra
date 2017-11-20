@@ -504,6 +504,7 @@ class runbot_branch(osv.osv):
         'state': fields.char('Status'),
         'modules': fields.char("Modules to Install", help="Comma-separated list of modules to install and test."),
         'job_timeout': fields.integer('Job Timeout (minutes)', help='For default timeout: Mark it zero'),
+        'test_tags': fields.char("Test tags", help="Tags from the --test-tags params (same syntax)"),
     }
 
     def _get_pull_info(self, cr, uid, ids, context=None):
@@ -956,6 +957,9 @@ class runbot_build(osv.osv):
                 if not os.path.exists(datadir):
                     os.mkdir(datadir)
                 cmd += ["--data-dir", datadir]
+
+            if build.branch_id.test_tags:
+                cmd.extend(['--test_tags', "'%s'" % build.branch_id.test_tags])
 
         return cmd, build.modules
 

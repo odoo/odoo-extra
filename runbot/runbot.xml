@@ -66,6 +66,7 @@
                         <field name="job_timeout"/>
                         <field name="state"/>
                         <field name="modules"/>
+                        <field name="test_tags"/>
                     </group>
                 </sheet>
             </form>
