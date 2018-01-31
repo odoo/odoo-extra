@@ -1,0 +1,28 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+biwizard_reader_cubes,Reader on cubes,biwizard.x_cubes,group_biwizard_reader,1,0,0,0
+biwizard_writer_cubes,Manager on cubes,biwizard.x_cubes,group_biwizard_writer,1,1,1,1
+biwizard_all_cubes,All on cubes,biwizard.x_cubes,,0,0,0,0
+biwizard_reader_cubesmodel,Reader on cubes,biwizard.x_cubesmodel,group_biwizard_reader,1,0,0,0
+biwizard_writer_cubesmodel,Manager on cubes,biwizard.x_cubesmodel,group_biwizard_writer,1,1,1,1
+biwizard_all_cubesmodel,All on cubes,biwizard.x_cubesmodel,,0,0,0,0
+biwizard_reader_cubeslinks,Reader on cubes links,biwizard.x_cubeslinks,group_biwizard_reader,1,0,0,0
+biwizard_writer_cubeslinks,Manager on cubes links,biwizard.x_cubeslinks,group_biwizard_writer,1,1,1,1
+biwizard_all_cubeslinks,All on cubes links,biwizard.x_cubeslinks,,0,0,0,0
+biwizard_reader_cubesfield,Reader on cubes,biwizard.x_cubesfield,group_biwizard_reader,1,0,0,0
+biwizard_writer_cubesfield,Manager on cubes,biwizard.x_cubesfield,group_biwizard_writer,1,1,1,1
+biwizard_all_cubesfield,All on cubes,biwizard.x_cubesfield,,0,0,0,0
+biwizard_reader_cubescomputedfield,Reader on cubes,biwizard.x_cubescomputedfield,group_biwizard_reader,1,0,0,0
+biwizard_writer_cubescomputedfield,Manager on cubes,biwizard.x_cubescomputedfield,group_biwizard_writer,1,1,1,1
+biwizard_all_cubescomputedfield,All on cubes,biwizard.x_cubescomputedfield,,0,0,0,0
+biwizard_reader_cubesacl,Reader on cubes acl,biwizard.x_cubesrule,group_biwizard_reader,1,0,0,0
+biwizard_writer_cubesacl,Manager on cubes acl,biwizard.x_cubesrule,group_biwizard_writer,1,1,1,1
+biwizard_all_cubesacl,All on cubes acl,biwizard.x_cubesrule,,0,0,0,0
+biwizard_reader_cubeunion,Reader on cube union,biwizard.x_cubeunion,group_biwizard_reader,1,0,0,0
+biwizard_writer_cubeunion,Manager on cube union,biwizard.x_cubeunion,group_biwizard_writer,1,1,1,1
+biwizard_all_cubeunion,All on cube union,biwizard.x_cubeunion,,0,0,0,0
+biwizard_reader_ruleunion,Reader on cube union rules,biwizard.x_cubeunionrule,group_biwizard_reader,1,0,0,0
+biwizard_writer_ruleunion,Manager on cube union rules,biwizard.x_cubeunionrule,group_biwizard_writer,1,1,1,1
+biwizard_all_ruleunion,All on cube union rules,biwizard.x_cubeunionrule,,0,0,0,0
+biwizard_reader_filter,Reader on cube filter rules,biwizard.x_cubesfilters,group_biwizard_reader,1,0,0,0
+biwizard_writer_filter,Manager on cube filter rules,biwizard.x_cubesfilters,group_biwizard_writer,1,1,1,1
+biwizard_all_filter,All on cube filter rules,biwizard.x_cubesfilters,,0,0,0,0

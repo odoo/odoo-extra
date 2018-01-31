@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="true">
+
+		<record model="ir.model" id="biwizard.x_cubeslinks">
+			<field name="name">BI wizard links</field>
+			<field name="model">x_biwizard.cubeslinks</field>
+			<field name="info">BI cubes' links</field>
+			<field name="state">manual</field>
+		</record>
+	</data>
+	
+	<data noupdate="false">
+        <record model="ir.model.fields" id="biwizard.x_cubelink_cube">
+			<field name="name">x_cube_id</field>
+			<field name="field_description">Cube</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeslinks')"/>
+			<field name="model">x_biwizard.cubeslinks</field>
+			<field name="ttype">many2one</field>
+			<field name="relation">x_biwizard.cubes</field>
+			<field name="state">manual</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubelink_sequence">
+			<field name="name">x_sequence</field>
+			<field name="field_description">Sequence</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeslinks')"/>
+			<field name="model">x_biwizard.cubeslinks</field>
+			<field name="ttype">integer</field>
+			<field name="state">manual</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubelink_model1">
+			<field name="name">x_cubemodel1_id</field>
+			<field name="field_description">Source model</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeslinks')"/>
+			<field name="model">x_biwizard.cubeslinks</field>
+			<field name="ttype">many2one</field>
+			<field name="relation">x_biwizard.cubesmodel</field>
+			<field name="state">manual</field>
+			<field name="required">1</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubelink_field1">
+			<field name="name">x_field1_id</field>
+			<field name="field_description">Source field</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeslinks')"/>
+			<field name="model">x_biwizard.cubeslinks</field>
+			<field name="ttype">many2one</field>
+			<field name="relation">ir.model.fields</field>
+			<field name="state">manual</field>
+			<field name="required">1</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubelink_field1_name">
+			<field name="name">x_field1_name</field>
+			<field name="field_description">Source field db name</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeslinks')"/>
+			<field name="model">x_biwizard.cubeslinks</field>
+			<field name="ttype">char</field>
+			<field name="related">x_field1_id.name</field>
+			<field name="state">manual</field>
+			<field name="readonly">1</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubelink_model2">
+			<field name="name">x_cubemodel2_id</field>
+			<field name="field_description">Destination model</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeslinks')"/>
+			<field name="model">x_biwizard.cubeslinks</field>
+			<field name="ttype">many2one</field>
+			<field name="relation">x_biwizard.cubesmodel</field>
+			<field name="state">manual</field>
+			<field name="required">1</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubelink_field2">
+			<field name="name">x_field2_id</field>
+			<field name="field_description">Destination field</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeslinks')"/>
+			<field name="model">x_biwizard.cubeslinks</field>
+			<field name="ttype">many2one</field>
+			<field name="relation">ir.model.fields</field>
+			<field name="state">manual</field>
+			<field name="required">1</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubelink_field2_name">
+			<field name="name">x_field2_name</field>
+			<field name="field_description">Destination field db name</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeslinks')"/>
+			<field name="model">x_biwizard.cubeslinks</field>
+			<field name="ttype">char</field>
+			<field name="related">x_field2_id.name</field>
+			<field name="state">manual</field>
+			<field name="readonly">1</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubelink_linktype">
+			<field name="name">x_linktype</field>
+			<field name="field_description">Link</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeslinks')"/>
+			<field name="model">x_biwizard.cubeslinks</field>
+			<field name="ttype">selection</field>
+			<field name="selection">[('inner join', 'Inner'),
+									 ('left join', 'Left'),
+									 ('right join', 'Right'),
+									 ('full outer', 'Outer'),
+									 ('cross join', 'Cross')]
+			</field>
+			<field name="state">manual</field>
+			<field name="required">1</field>
+		</record>
+
+		<record model="ir.actions.server" id="set_cube_id_in_link">
+			<field name="name">Set cube_id in links</field>
+			<field name="model_id" ref="biwizard.x_cubeslinks"/>
+			<field name="code">
+if not object.x_cube_id and object.x_cubemodel1_id:
+	object.write({'x_cube_id': object.x_cubemodel1_id.x_cube_id.id})
+			</field>
+		</record>
+		
+		<record id="automated_set_cube_id_in_link" model="base.automation">
+            <field name="name">Set cube_id in links</field>
+            <field name="model_id" ref="biwizard.x_cubeslinks"/>
+            <field name="trigger">on_create_or_write</field>
+			<field name="sequence">5</field>
+            <field name="child_ids" eval="[(4, ref('biwizard.set_cube_id_in_link'))]"/>
+        </record>
+		
+		<record model="ir.actions.server" id="wkf_set_linkscube_to_edited">
+			<field name="name">Set cube state to Edited</field>
+			<field name="model_id" ref="biwizard.x_cubeslinks"/>
+			<field name="code">
+if not object.x_cube_id.x_state=='draft':
+	object.x_cube_id.write({'x_state': 'edited'})
+			</field>
+		</record>
+		
+		<record id="automated_wkf_set_linkscube_to_edited" model="base.automation">
+			<field name="name">Set cube state to edited</field>
+			<field name="model_id" ref="biwizard.x_cubeslinks"/>
+			<field name="trigger">on_create_or_write</field>
+			<field name="sequence">20</field>
+			<field name="child_ids" eval="[(4, ref('biwizard.wkf_set_linkscube_to_edited'))]"/>
+		</record>
+		
+	</data>
+	
+</openerp>

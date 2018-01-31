@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Form -->
+		<record model="ir.ui.view" id="biwizard_view_cubemodel_form">
+			<field name="name">biwizard.view.cubemodel.form</field>
+			<field name="model">x_biwizard.cubesmodel</field>
+			<field name="arch" type="xml">
+				<form string="cube model form">
+					<sheet>
+						<group col="4">
+							<field name="x_cube_id" invisible="1"/>
+                            <field name="x_model_id" options="{'quick_create': false, 'no_create': true, 'no_open': True}"/>
+                            <field name="x_name"/>
+                            <field name="x_magicfields"/>
+						</group>
+                        <group col="1" string="Fields">
+                            <field name="x_cubemodel_field_ids">
+                                <tree editable="bottom">
+                                    <field name="x_field_id" domain="[('model_id.x_cubemodel_ids.id', '=', parent.x_cube_id), ('ttype', 'in', ('boolean', 'char', 'date', 'datetime', 'float', 'html', 'integer', 'selection', 'text'))]" options="{'quick_create': false, 'no_create': true, 'no_open': True}"/>
+                                    <field name="x_pivot"/>
+                                    <field name="x_graph"/>
+                                    <field name="x_searchable"/>
+                                    <field name="x_groupable"/>
+                                </tree>
+                            </field>
+						</group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

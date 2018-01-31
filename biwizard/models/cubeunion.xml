@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="true">
+		<record id="biwizard.x_cubeunion" model="ir.model">
+			<field name="name">BI wizard cube union</field>
+			<field name="model">x_biwizard.cubeunion</field>
+			<field name="info">BI custom cube union</field>
+			<field name="state">manual</field>
+		</record>
+	</data>
+	
+	<data noupdate="false">
+        <record id="biwizard.x_cubeunion_name" model="ir.model.fields">
+			<field name="name">x_name</field>
+			<field name="field_description">Name</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeunion')"/>
+			<field name="model">x_biwizard.cubeunion</field>
+			<field name="ttype">char</field>
+			<field name="state">manual</field>
+			<field name="required">1</field>
+		</record>
+        <record id="biwizard.x_cubeunion_state" model="ir.model.fields">
+			<field name="name">x_state</field>
+			<field name="field_description">Status</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeunion')"/>
+			<field name="model">x_biwizard.cubeunion</field>
+			<field name="ttype">selection</field>
+			<field name="selection">[('draft', 'Draft'), ('edited', 'Edited'), ('sync', 'Synchronized')]</field>
+			<field name="state">manual</field>
+		</record>
+        <record id="biwizard.x_cubeunion_group_ids" model="ir.model.fields">
+			<field name="name">x_group_ids</field>
+			<field name="field_description">Groups</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeunion')"/>
+			<field name="model">x_biwizard.cubeunion</field>
+			<field name="ttype">many2many</field>
+			<field name="relation">res.groups</field>
+			<field name="state">manual</field>
+		</record>
+		<record id="biwizard.x_cubeunion_materialized" model="ir.model.fields">
+			<field name="name">x_materialized</field>
+			<field name="field_description">Materialized view</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeunion')"/>
+			<field name="model">x_biwizard.cubeunion</field>
+			<field name="ttype">boolean</field>
+			<field name="state">manual</field>
+		</record>
+        <record id="biwizard.x_cubeunion_concurrent" model="ir.model.fields">
+			<field name="name">x_refresh_concurrent</field>
+			<field name="field_description">Refresh concurrently (requires PG 9.4)</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeunion')"/>
+			<field name="model">x_biwizard.cubeunion</field>
+			<field name="ttype">boolean</field>
+			<field name="state">manual</field>
+		</record>
+        <record id="biwizard.x_cubeunion_model_ids" model="ir.model.fields">
+			<field name="name">x_model_ids</field>
+			<field name="field_description">Models</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeunion')"/>
+			<field name="model">x_biwizard.cubeunion</field>
+			<field name="ttype">many2many</field>
+			<field name="relation">ir.model</field>
+			<field name="state">manual</field>
+		</record>        
+		<record id="biwizard.x_modelforcubeunion_create" model="ir.actions.server">
+            <field name="name">update model for cube</field>
+            <field name="model_id" eval="ref('biwizard.x_cubeunion')"/>
+            <field name="state">code</field>
+            <field name="sequence">5</field>
+            <field name="code">
+action = True
+            </field>
+        </record>
+
+        <record id="biwizard.x_modelforcubeunion_delete" model="ir.actions.server">
+            <field name="name">delete model for cube union</field>
+            <field name="model_id" eval="ref('biwizard.x_cubeunion')"/>
+            <field name="state">code</field>
+            <field name="sequence">5</field>
+            <field name="code">
+#Clean action
+act_ids = env["ir.actions.act_window"].search([('res_model', '=', object.x_name)])
+if act_ids:
+    act_ids.unlink()
+
+#Clean menu
+parent = env.ref('biwizard.menu_biwizard_reporting')
+menu_ids = env["ir.ui.menu"].search([('name', '=', "%s" % object.x_name), ('parent_id', '=', parent.id)])
+if menu_ids:
+    menu_ids.unlink()
+
+#Clean views
+view_ids = env["ir.ui.view"].search([('model', '=', object.x_name)])
+if view_ids:
+    view_ids.unlink()
+
+#Clean model
+model_ids = env["ir.model"].search([('name', '=', object.x_name)])
+if model_ids:
+    cr.execute("drop %s view IF EXISTS x_biwizard_%s" % ("MATERIALIZED" if object.x_materialized else "", object.x_name))
+    irrule_ids = env["ir.model.access"].search([('model_id', 'in', model_ids.ids)])
+    irrule_ids.unlink()
+    irrule_ids = env["ir.rule"].search([('model_id', 'in', model_ids.ids)])
+    irrule_ids.unlink()
+    model_ids.unlink()
+
+object.write({'x_state': 'draft'})
+            </field>
+        </record>
+		
+        <record model="ir.actions.server" id="wkf_set_cubeunion_to_edited">
+            <field name="name">Set cube union to Edited</field>
+            <field name="model_id" ref="biwizard.x_cubeunion"/>
+            <field name="code">
+if not object.x_state=='draft':
+	object.write({'x_state': 'edited'})
+            </field>
+        </record>
+		
+		<record id="automated_wkf_set_cubeunion_to_edited" model="base.automation">
+            <field name="name">Set state to edited</field>
+            <field name="model_id" ref="biwizard.x_cubeunion"/>
+            <field name="trigger">on_write</field>
+            <field name="child_ids" eval="[(4, ref('biwizard.wkf_set_cubeunion_to_edited'))]"/>
+        </record>
+	
+		<record id="cubeunion_update_one_materialized_view" model="ir.actions.server">
+            <field name="name">Update one materialized union view</field>
+            <field name="model_id" ref="biwizard.x_cubes"/>
+            <field name="code">
+if object.x_materialized:
+    cr.execute("refresh materialized view %s x_biwizard_%s" % ("CONCURRENTLY" if object.x_refresh_concurrent else '', object.x_name))
+            </field>
+        </record>
+			
+		
+	</data>
+	
+</openerp>

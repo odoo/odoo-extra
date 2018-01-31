@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Form -->
+		<record model="ir.ui.view" id="biwizard_view_computedfields_form">
+			<field name="name">biwizard.view.computedfields.form</field>
+			<field name="model">x_biwizard.cubescomputedfields</field>
+			<field name="priority" eval="16"/>
+			<field name="arch" type="xml">
+				<form string="Computed fields form" version="7.0">
+					<sheet>
+						<group>
+							<group cols="4">
+								<field name="x_name"/>
+								<field name="x_type"/>
+								<field name="x_m2omodel" attrs="{'invisible': [('x_type', '!=', 'many2one')]}"/>
+							</group>
+							<group cols="4">
+								<field name="x_searchable"/>
+								<field name="x_groupable"/>
+								<field name="x_pivot"/>
+								<field name="x_graph"/>
+							</group>
+							<group colspan="4">
+								<field name="x_formula"/>
+							</group>
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+	</data>
+</openerp>

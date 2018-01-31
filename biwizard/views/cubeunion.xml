@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Form -->
+		<record id="biwizard_view_cubeunion_form" model="ir.ui.view">
+			<field name="name">biwizard.view.cubeunion.form</field>
+			<field name="model">x_biwizard.cubeunion</field>
+			<field name="arch" type="xml">
+				<form string="cubes form">
+					<header>
+						<button name="%(x_modelforcubeunion_create)d" type="action" string="Update model" class="oe_highlight" attrs="{'invisible': [('x_state', '=', 'sync')]}"/>
+						<button name="%(x_modelforcubeunion_delete)d" type="action" string="Delete model" attrs="{'invisible': [('x_state', '=', 'draft')]}"/>
+						<button name="%(cubeunion_update_one_materialized_view)d" type="action" string="Update materialized view" attrs="{'invisible': ['|', ('x_state', '=', 'draft'), ('x_materialized', '=', False)]}"/>
+						<field name="x_state" widget="statusbar"/>
+	    			</header>
+					<sheet>
+						<group colspan="2">
+							<field name="x_name" attrs="{'readonly': [('x_state','in',('edited', 'sync'))]}"/>
+						</group>
+						<notebook>
+                        	<page string="Models">
+								<field name="x_model_ids"/>
+							</page>
+                            <page string="ACL">
+								<field name="x_group_ids"/>
+							</page>
+							<page string="Record rules">
+								<field name="x_rule_ids">
+									<tree>
+										<field name="x_group_ids" widget="many2many_tags"/>
+										<field name="x_domain"/>
+									</tree>
+								</field>
+							</page>
+                            <page string="advanced">
+								<group col="4">
+									<field name="x_materialized" attrs="{'readonly': [('x_state','in',('edited', 'sync'))]}"/>
+									<field name="x_refresh_concurrent" attrs="{'readonly': [('x_materialized','=', False)]}"/>
+								</group>
+							</page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+		<!-- List -->
+		<record id="biwizard_view_cubeunion_tree" model="ir.ui.view">
+			<field name="name">biwizard.view.cubeunion.tree</field>
+			<field name="model">x_biwizard.cubeunion</field>
+			<field name="arch" type="xml">
+				<tree string="cube unions list">
+					<field name="x_name"/>
+					<field name="x_state"/>
+				</tree>
+			</field>
+		</record>
+        
+    </data>
+</openerp>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="group_biwizard_reader" model="res.groups">
+			<field name="name">BI wizard / read</field>
+			<field name="comment">Read access to BI wizard</field>
+		</record>
+		<record id="group_biwizard_writer" model="res.groups">
+			<field name="name">BI wizard / write</field>
+			<field name="comment">Write access to BI wizard</field>
+		</record>
+	</data>
+</openerp>

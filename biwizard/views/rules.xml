@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Form -->
+		<record model="ir.ui.view" id="biwizard_view_cubesrule_form">
+			<field name="name">biwizard.view.cubesrule.form</field>
+			<field name="model">x_biwizard.cubesrule</field>
+			<field name="priority" eval="16"/>
+			<field name="arch" type="xml">
+				<form string="Cube record rule" version="7.0">
+					<sheet>
+						<group col="1">
+							<field name="x_domain"/>
+							<field name="x_group_ids"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+	</data>
+</openerp>

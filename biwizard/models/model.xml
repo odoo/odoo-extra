@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="true">
+        <record model="ir.model" id="biwizard.x_cubesmodel">
+            <field name="name">BI wizard models</field>
+            <field name="model">x_biwizard.cubesmodel</field>
+            <field name="info">BI cubes' models</field>
+            <field name="state">manual</field>
+        </record>	
+	</data>
+	
+	<data noupdate="false">
+        <record model="ir.model.fields" id="biwizard.x_cubemodel_cube">
+			<field name="name">x_cube_id</field>
+			<field name="field_description">Cube</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesmodel')"/>
+			<field name="model">x_biwizard.cubesmodel</field>
+			<field name="ttype">many2one</field>
+			<field name="relation">x_biwizard.cubes</field>
+			<field name="state">manual</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubemodel_model">
+			<field name="name">x_model_id</field>
+			<field name="field_description">Model</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesmodel')"/>
+			<field name="model">x_biwizard.cubesmodel</field>
+			<field name="ttype">many2one</field>
+			<field name="relation">ir.model</field>
+			<field name="state">manual</field>
+			<field name="required">1</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubemodel_alias">
+			<field name="name">x_name</field>
+			<field name="field_description">Alias</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesmodel')"/>
+			<field name="model">x_biwizard.cubesmodel</field>
+			<field name="ttype">char</field>
+			<field name="state">manual</field>
+			<field name="required">1</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubemodel_magicfield">
+			<field name="name">x_magicfields</field>
+			<field name="field_description">Use for magic fields</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesmodel')"/>
+			<field name="model">x_biwizard.cubesmodel</field>
+			<field name="ttype">boolean</field>
+			<field name="state">manual</field>
+			<field name="index">1</field>
+		</record>
+
+
+		<record model="ir.actions.server" id="wkf_set_modelscube_to_edited">
+			<field name="name">Set cube state to Edited</field>
+			<field name="model_id" ref="biwizard.x_cubesmodel"/>
+			<field name="code">
+if not object.x_cube_id.x_state=='draft':
+	object.x_cube_id.write({'x_state': 'edited'})
+			</field>
+		</record>
+		
+		<record id="automated_wkf_set_modelscube_to_edited" model="base.automation">
+			<field name="name">Set cube state to edited</field>
+			<field name="model_id" ref="biwizard.x_cubesmodel"/>
+			<field name="trigger">on_create_or_write</field>
+			<field name="sequence">20</field>
+			<field name="child_ids" eval="[(4, ref('biwizard.wkf_set_modelscube_to_edited'))]"/>
+		</record>
+		
+	</data>
+</openerp>

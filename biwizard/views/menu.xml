@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- cubes -->
+		<record id="biwizard_action_list_cubes" model="ir.actions.act_window">
+			<field name="name">Cubes</field>
+			<field name="res_model">x_biwizard.cubes</field>
+			<field name="view_mode">tree,form,diagram</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Create your first cube</p>
+			</field>
+		</record>
+		
+		<!-- cube union -->
+		<record id="biwizard_action_list_cubeunion" model="ir.actions.act_window">
+			<field name="name">Cube unions</field>
+			<field name="res_model">x_biwizard.cubeunion</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Create your first cube union</p>
+			</field>
+		</record>
+
+		<!-- Menu -->
+		<menuitem id="menu_biwizard_reporting" name="Custom Cubes" sequence="150"/>
+		
+		<menuitem id="menu_biwizard_cubeslist" parent="menu_biwizard_reporting" name="Cubes" sequence="20"/>
+		
+		<menuitem id="menu_biwizard_config" parent="menu_biwizard_reporting" name="Configuration" sequence="10"/>
+
+		<menuitem id="menu_biwizard_cubes_list" parent="menu_biwizard_config" name="Cubes" sequence="10"
+			action="biwizard_action_list_cubes"/>
+		<menuitem id="menu_biwizard_cubeunion_list" parent="menu_biwizard_config" name="Cube unions" sequence="20"
+			action="biwizard_action_list_cubeunion"/>
+
+	</data>
+</openerp>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="true">
+		<record model="ir.model" id="biwizard.x_cubesfield">
+			<field name="name">BI wizard fields</field>
+			<field name="model">x_biwizard.cubesfields</field>
+			<field name="info">BI cubes' fields</field>
+			<field name="state">manual</field>
+		</record>
+	</data>
+	
+	<data noupdate="false">    
+        <record model="ir.model.fields" id="biwizard.x_cubefield_cube">
+			<field name="name">x_cube_id</field>
+			<field name="field_description">Cube</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesfield')"/>
+			<field name="model">x_biwizard.cubesfields</field>
+			<field name="ttype">many2one</field>
+			<field name="relation">x_biwizard.cubes</field>
+			<field name="state">manual</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubefield_model">
+			<field name="name">x_cubemodel_id</field>
+			<field name="field_description">Model</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesfield')"/>
+			<field name="model">x_biwizard.cubesfields</field>
+			<field name="ttype">many2one</field>
+			<field name="relation">x_biwizard.cubesmodel</field>
+			<field name="state">manual</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubefield_field">
+			<field name="name">x_field_id</field>
+			<field name="field_description">Field</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesfield')"/>
+			<field name="model">x_biwizard.cubesfields</field>
+			<field name="ttype">many2one</field>
+			<field name="relation">ir.model.fields</field>
+			<field name="state">manual</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubefield_search">
+			<field name="name">x_searchable</field>
+			<field name="field_description">Searchable</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesfield')"/>
+			<field name="model">x_biwizard.cubesfields</field>
+			<field name="ttype">boolean</field>
+			<field name="state">manual</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubefield_group">
+			<field name="name">x_groupable</field>
+			<field name="field_description">Groupable</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesfield')"/>
+			<field name="model">x_biwizard.cubesfields</field>
+			<field name="ttype">boolean</field>
+			<field name="state">manual</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubefield_pivot">
+			<field name="name">x_pivot</field>
+			<field name="field_description">Pivot</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesfield')"/>
+			<field name="model">x_biwizard.cubesfields</field>
+			<field name="ttype">selection</field>
+			<field name="selection">[('row', 'row'), ('col', 'col'), ('measure', 'measure')]</field>
+			<field name="state">manual</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubefield_graph">
+			<field name="name">x_graph</field>
+			<field name="field_description">Graph</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesfield')"/>
+			<field name="model">x_biwizard.cubesfields</field>
+			<field name="ttype">selection</field>
+			<field name="selection">[('row', 'row'), ('measure', 'measure')]</field>
+			<field name="state">manual</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubefield_alias">
+			<field name="name">x_alias</field>
+			<field name="field_description">Alias</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesfield')"/>
+			<field name="model">x_biwizard.cubesfields</field>
+			<field name="ttype">char</field>
+			<field name="state">manual</field>
+		</record>
+		<record model="ir.model.fields" id="biwizard.x_cubefield_techname">
+			<field name="name">x_techname</field>
+			<field name="field_description">Field name in db</field>
+			<field name="model_id" eval="ref('biwizard.x_cubesfield')"/>
+			<field name="model">x_biwizard.cubesfields</field>
+			<field name="ttype">char</field>
+			<field name="related">x_field_id.name</field>
+			<field name="state">manual</field>
+		</record>
+        
+		<record model="ir.actions.server" id="set_cube_id_in_field">
+			<field name="name">Set cube_id in fields</field>
+			<field name="model_id" ref="biwizard.x_cubesfield"/>
+			<field name="code">
+if not object.x_cube_id and object.x_cubemodel_id:
+	object.write({'x_cube_id': object.x_cubemodel_id.x_cube_id.id})
+			</field>
+		</record>
+		
+		<record id="automated_set_cube_id_in_field" model="base.automation">
+            <field name="name">Set cube_id in links</field>
+            <field name="model_id" ref="biwizard.x_cubesfield"/>
+            <field name="trigger">on_create_or_write</field>
+			<field name="sequence">5</field>
+            <field name="child_ids" eval="[(4, ref('biwizard.set_cube_id_in_field'))]"/>
+        </record>
+		
+		<record model="ir.actions.server" id="wkf_set_fieldscube_to_edited">
+			<field name="name">Set cube state to Edited</field>
+			<field name="model_id" ref="biwizard.x_cubesfield"/>
+			<field name="code">
+if not object.x_cube_id.x_state=='draft':
+	object.x_cube_id.write({'x_state': 'edited'})
+			</field>
+		</record>
+		
+		<record id="automated_wkf_set_fieldscube_to_edited" model="base.automation">
+			<field name="name">Set cube state to edited</field>
+			<field name="model_id" ref="biwizard.x_cubesfield"/>
+			<field name="trigger">on_create_or_write</field>
+			<field name="sequence">20</field>
+			<field name="child_ids" eval="[(4, ref('biwizard.wkf_set_fieldscube_to_edited'))]"/>
+		</record>
+		
+	</data>
+	
+</openerp>

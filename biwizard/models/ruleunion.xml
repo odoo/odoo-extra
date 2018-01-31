@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="true">
+        <record id="biwizard.x_cubeunionrule" model="ir.model">
+            <field name="name">BI wizard rules</field>
+            <field name="model">x_biwizard.cubeunionrule</field>
+            <field name="info">BI cube unions' rules</field>
+            <field name="state">manual</field>
+        </record>
+	</data>
+	
+	<data noupdate="false">
+        <record id="biwizard.x_cubeunionrule_cube" model="ir.model.fields">
+			<field name="name">x_cubeunion_id</field>
+			<field name="field_description">Cube</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeunionrule')"/>
+			<field name="model">x_biwizard.cubeunionrule</field>
+			<field name="ttype">many2one</field>
+			<field name="relation">x_biwizard.cubeunion</field>
+			<field name="state">manual</field>
+		</record>
+		<record id="biwizard.x_cubeunionrule_group" model="ir.model.fields">
+			<field name="name">x_group_ids</field>
+			<field name="field_description">Groups</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeunionrule')"/>
+			<field name="model">x_biwizard.cubeunionrule</field>
+			<field name="ttype">many2many</field>
+			<field name="relation">res.groups</field>
+			<field name="state">manual</field>
+		</record>
+		<record id="biwizard.x_cubeunionrule_domain" model="ir.model.fields">
+			<field name="name">x_domain</field>
+			<field name="field_description">Domain</field>
+			<field name="model_id" eval="ref('biwizard.x_cubeunionrule')"/>
+			<field name="model">x_biwizard.cubeunionrule</field>
+			<field name="ttype">text</field>
+			<field name="state">manual</field>
+		</record>
+
+	</data>
+</openerp>

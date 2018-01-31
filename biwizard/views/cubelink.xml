@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Form -->
+		<record model="ir.ui.view" id="biwizard_view_cubeslinks_form">
+			<field name="name">biwizard.view.cubeslinks.form</field>
+			<field name="model">x_biwizard.cubeslinks</field>
+			<field name="arch" type="xml">
+				<form string="cube model link">
+					<sheet>
+						<group col="4">
+							<field name="x_cube_id" options="{'quick_create': false, 'no_create': true, 'no_open': True}" readonly="1"/>
+                            <field name="x_sequence" invisible="1"/>
+                            <field name="x_cubemodel1_id" options="{'quick_create': false, 'no_create': true, 'no_open': True}" readonly="1"/>
+                            <field name="x_field1_id" domain="[('model_id.x_cubemodel_ids.id', '=', x_cubemodel1_id)]" options="{'quick_create': false, 'no_create': true, 'no_open': True}"/>
+                            <field name="x_cubemodel2_id" options="{'quick_create': false, 'no_create': true, 'no_open': True}" readonly="1"/>
+                            <field name="x_field2_id" domain="[('model_id.x_cubemodel_ids.id', '=', x_cubemodel2_id)]" options="{'quick_create': false, 'no_create': true, 'no_open': True}"/>
+                            <field name="x_linktype"/>
+						</group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

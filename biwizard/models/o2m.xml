@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- cubes o2m -->
+	<record model="ir.model.fields" id="biwizard.x_cube_modelsids">
+		<field name="name">x_models_ids</field>
+		<field name="field_description">Models</field>
+		<field name="model_id" eval="ref('biwizard.x_cubes')"/>
+		<field name="model">x_biwizard.cubes</field>
+		<field name="ttype">one2many</field>
+		<field name="relation">x_biwizard.cubesmodel</field>
+		<field name="relation_field">x_cube_id</field>
+		<field name="state">manual</field>
+	</record>
+	<record model="ir.model.fields" id="biwizard.x_cube_linksids">
+		<field name="name">x_links_ids</field>
+		<field name="field_description">Links</field>
+		<field name="model_id" eval="ref('biwizard.x_cubes')"/>
+		<field name="model">x_biwizard.cubes</field>
+		<field name="ttype">one2many</field>
+		<field name="relation">x_biwizard.cubeslinks</field>
+		<field name="relation_field">x_cube_id</field>
+		<field name="state">manual</field>
+	</record>
+	<record model="ir.model.fields" id="biwizard.x_cube_fieldsids">
+		<field name="name">x_fields_ids</field>
+		<field name="field_description">Fields</field>
+		<field name="model_id" eval="ref('biwizard.x_cubes')"/>
+		<field name="model">x_biwizard.cubes</field>
+		<field name="ttype">one2many</field>
+		<field name="relation">x_biwizard.cubesfields</field>
+		<field name="relation_field">x_cube_id</field>
+		<field name="state">manual</field>
+	</record>
+	<record model="ir.model.fields" id="biwizard.x_cube_computedfieldsids">
+		<field name="name">x_computedfields_ids</field>
+		<field name="field_description">Computed fields</field>
+		<field name="model_id" eval="ref('biwizard.x_cubes')"/>
+		<field name="model">x_biwizard.cubes</field>
+		<field name="ttype">one2many</field>
+		<field name="relation">x_biwizard.cubescomputedfields</field>
+		<field name="relation_field">x_cube_id</field>
+		<field name="state">manual</field>
+	</record>
+	<record model="ir.model.fields" id="biwizard.x_cube_ruleids">
+		<field name="name">x_rule_ids</field>
+		<field name="field_description">Record rules</field>
+		<field name="model_id" eval="ref('biwizard.x_cubes')"/>
+		<field name="model">x_biwizard.cubes</field>
+		<field name="ttype">one2many</field>
+		<field name="relation">x_biwizard.cubesrule</field>
+		<field name="relation_field">x_cube_id</field>
+		<field name="state">manual</field>
+	</record>
+	<record model="ir.model.fields" id="biwizard.x_cube_filterids">
+		<field name="name">x_filter_ids</field>
+		<field name="field_description">Filters</field>
+		<field name="model_id" eval="ref('biwizard.x_cubes')"/>
+		<field name="model">x_biwizard.cubes</field>
+		<field name="ttype">one2many</field>
+		<field name="relation">x_biwizard.cubesfilters</field>
+		<field name="relation_field">x_cube_id</field>
+		<field name="state">manual</field>
+	</record>
+
+	<!-- CubeModel o2m -->
+	<record model="ir.model.fields" id="biwizard.x_cubemodels_link_ids">
+		<field name="name">x_cubemodel_link_ids</field>
+		<field name="field_description">Cube model links</field>
+		<field name="model_id" eval="ref('biwizard.x_cubesmodel')"/>
+		<field name="model">x_biwizard.cubesmodel</field>
+		<field name="ttype">one2many</field>
+		<field name="relation">x_biwizard.cubeslinks</field>
+		<field name="relation_field">x_cubemodel1_id</field>
+		<field name="state">manual</field>
+	</record>
+	<record model="ir.model.fields" id="biwizard.x_cubemodels_link_to_ids">
+		<field name="name">x_cubemodel_link_to_ids</field>
+		<field name="field_description">Cube model links</field>
+		<field name="model_id" eval="ref('biwizard.x_cubesmodel')"/>
+		<field name="model">x_biwizard.cubesmodel</field>
+		<field name="ttype">one2many</field>
+		<field name="relation">x_biwizard.cubeslinks</field>
+		<field name="relation_field">x_cubemodel2_id</field>
+		<field name="state">manual</field>
+	</record>
+	<record model="ir.model.fields" id="biwizard.x_cubemodels_field_ids">
+		<field name="name">x_cubemodel_field_ids</field>
+		<field name="field_description">Fields</field>
+		<field name="model_id" eval="ref('biwizard.x_cubesmodel')"/>
+		<field name="model">x_biwizard.cubesmodel</field>
+		<field name="ttype">one2many</field>
+		<field name="relation">x_biwizard.cubesfields</field>
+		<field name="relation_field">x_cubemodel_id</field>
+		<field name="state">manual</field>
+	</record>
+
+	<!-- Model o2m -->
+	<record model="ir.model.fields" id="biwizard.x_models_aliases">
+		<field name="name">x_cubemodel_ids</field>
+		<field name="field_description">Cube model</field>
+		<field name="model_id" eval="ref('base.model_ir_model')"/>
+		<field name="model">ir.model</field>
+		<field name="ttype">one2many</field>
+		<field name="relation">x_biwizard.cubesmodel</field>
+		<field name="relation_field">x_model_id</field>
+		<field name="state">manual</field>
+	</record>
+
+	<!-- cube union o2m -->
+	<record id="biwizard.x_cubeunion_ruleids" model="ir.model.fields">
+		<field name="name">x_rule_ids</field>
+		<field name="field_description">Record rules</field>
+		<field name="model_id" eval="ref('biwizard.x_cubeunion')"/>
+		<field name="model">x_biwizard.cubeunion</field>
+		<field name="ttype">one2many</field>
+		<field name="relation">x_biwizard.cubeunionrule</field>
+		<field name="relation_field">x_cubeunion_id</field>
+		<field name="state">manual</field>
+	</record>
+</odoo>

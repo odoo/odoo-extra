@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Form -->
+		<record model="ir.ui.view" id="biwizard_view_cubes_form">
+			<field name="name">biwizard.view.cubes.form</field>
+			<field name="model">x_biwizard.cubes</field>
+			<field name="priority" eval="16"/>
+			<field name="arch" type="xml">
+				<form string="cubes form" version="7.0">
+					<header>
+						<button name="%(x_modelforcube_create)d" type="action" string="Update model" class="oe_highlight" attrs="{'invisible': [('x_state', '=', 'sync')]}"/>
+						<button name="%(x_modelforcube_delete)d" type="action" string="Delete model" attrs="{'invisible': [('x_state', '=', 'draft')]}"/>
+						<button name="%(cube_update_one_materialized_view)d" type="action" string="Update materialized view" attrs="{'invisible': ['|', ('x_state', '=', 'draft'), ('x_materialized', '=', False)]}"/>
+						<field name="x_state" widget="statusbar"/>
+	    			</header>
+					<sheet>
+						<group colspan="2">
+							<field name="x_name" attrs="{'readonly': [('x_state','in',('edited', 'sync'))]}"/>
+						</group>
+						<notebook>
+                        	<page string="Models">
+								<field name="x_models_ids">
+									<tree editable="bottom">
+										<field name="x_model_id"/>
+										<field name="x_name"/>
+										<field name="x_magicfields"/>
+									</tree>
+								</field>
+							</page>
+							<page string="Links">
+								<field name="x_links_ids">
+									<tree editable="bottom" default_order="x_sequence">
+										<field name="x_sequence" widget="handle"/>
+										<field name="x_cubemodel1_id" domain="[('x_cube_id', '=', parent.id)]" options="{'quick_create': false, 'no_create': true, 'no_open': True}"/>
+										<field name="x_field1_id" domain="[('model_id.x_cubemodel_ids.id', '=', x_cubemodel1_id)]" options="{'quick_create': false, 'no_create': true, 'no_open': True}"/>
+										<field name="x_field1_name"/>
+										<field name="x_linktype"/>
+										<field name="x_cubemodel2_id" domain="[('x_cube_id', '=', parent.id)]" options="{'quick_create': false, 'no_create': true, 'no_open': True}"/>
+										<field name="x_field2_id" domain="[('model_id.x_cubemodel_ids.id', '=', x_cubemodel2_id)]" options="{'quick_create': false, 'no_create': true, 'no_open': True}"/>
+										<field name="x_field2_name"/>
+									</tree>
+								</field>
+							</page>
+							<page string="Fields">
+								<field name="x_fields_ids">
+									<tree editable="bottom">
+										<field name="x_cubemodel_id" domain="[('x_cube_id', '=', parent.id)]" options="{'quick_create': false, 'no_create': true, 'no_open': True}"/>
+										<field name="x_field_id" domain="[('model_id.x_cubemodel_ids.id', '=', x_cubemodel_id), ('ttype', 'in', ('boolean', 'char', 'date', 'datetime', 'float', 'html', 'integer', 'selection', 'text', 'many2one'))]" options="{'quick_create': false, 'no_create': true, 'no_open': True}"/>
+										<field name="x_pivot"/>
+										<field name="x_graph"/>
+										<field name="x_searchable"/>
+										<field name="x_groupable"/>
+										<field name="x_techname" readonly="1"/>
+										<field name="x_alias"/>
+									</tree>
+								</field>
+							</page>
+							<page string="Computed fields">
+								<field name="x_computedfields_ids">
+									<tree>
+										<field name="x_name"/>
+										<field name="x_searchable"/>
+										<field name="x_groupable"/>
+										<field name="x_pivot"/>
+										<field name="x_graph"/>
+									</tree>
+								</field>
+							</page>
+							<page string="Filters">
+								<field name="x_filter_ids">
+									<tree>
+										<field name="x_name"/>
+										<field name="x_string"/>
+										<field name="x_domain"/>
+									</tree>
+								</field>
+							</page>
+							<page string="ACL">
+								<field name="x_group_ids"/>
+							</page>
+							<page string="Record rules">
+								<field name="x_rule_ids">
+									<tree>
+										<field name="x_group_ids" widget="many2many_tags"/>
+										<field name="x_domain"/>
+									</tree>
+								</field>
+							</page>
+							<page string="advanced">
+								<group col="4">
+									<field name="x_materialized" attrs="{'readonly': [('x_state','in',('edited', 'sync'))]}"/>
+									<field name="x_refresh_concurrent" attrs="{'readonly': [('x_materialized','=', False)]}"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- List -->
+		<record model="ir.ui.view" id="biwizard_view_cubes_tree">
+			<field name="name">biwizard.view.cubes.tree</field>
+			<field name="model">x_biwizard.cubes</field>
+			<field name="priority" eval="16"/>
+			<field name="arch" type="xml">
+				<tree string="cubes list">
+					<field name="x_name"/>
+					<field name="x_state"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- diagram -->
+		<record model="ir.ui.view" id="biwizard_view_cubes_diagram">
+			<field name="name">biwizard.view.cubes.diagram</field>
+			<field name="model">x_biwizard.cubes</field>
+			<field name="priority" eval="16"/>
+			<field name="arch" type="xml">
+				<diagram string="Cube Editor">
+		          <node object="x_biwizard.cubesmodel" shape="rectangle:x_model_id==False" bgcolor="gray:x_magicfields==True">
+		            <field name="x_cube_id" readonly="1"/>
+		            <field name="x_model_id"/>
+		            <field name="x_name"/>
+		            <field name="x_magicfields"/>
+		            <field name="x_cubemodel_field_ids"/>
+		          </node>
+		          <arrow object="x_biwizard.cubeslinks" source="x_cubemodel1_id" destination="x_cubemodel2_id" label="['x_field1_id','x_field2_id']">
+		            <field name="x_cubemodel1_id"/>
+		            <field name="x_field1_id"/>
+		            <field name="x_linktype"/>
+		            <field name="x_cubemodel2_id"/>
+		            <field name="x_field2_id"/>
+		          </arrow>
+		        </diagram>
+			</field>
+		</record>
+
+	</data>
+</openerp>
