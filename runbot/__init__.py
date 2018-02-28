@@ -1,2 +1,5 @@
-import runbot
-import res_config
+# -*- coding: utf-8 -*-
+
+from . import controllers
+from . import models
+from . import common
