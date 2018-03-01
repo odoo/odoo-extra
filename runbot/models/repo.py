@@ -175,7 +175,7 @@ class runbot_repo(models.Model):
                 branch_id = ref_branches[name]
             else:
                 _logger.debug('repo %s found new branch %s', repo.name, name)
-                branch_id = Branch.create({'repo_id': repo.id, 'name': name})
+                branch_id = Branch.create({'repo_id': repo.id, 'name': name}).id
             branch = Branch.browse([branch_id])[0]
 
             # skip the build for old branches (Could be checked before creating the branch in DB ?)
