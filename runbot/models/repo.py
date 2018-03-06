@@ -287,7 +287,7 @@ class runbot_repo(models.Model):
 
             nginx_config = self.env['ir.ui.view'].render_template("runbot.nginx_config", settings)
             os.makedirs(nginx_dir, exist_ok=True)
-            open(os.path.join(nginx_dir, 'nginx.conf'), 'w').write(nginx_config)
+            open(os.path.join(nginx_dir, 'nginx.conf'), 'wb').write(nginx_config)
             try:
                 _logger.debug('reload nginx')
                 pid = int(open(os.path.join(nginx_dir, 'nginx.pid')).read().strip(' \n'))
