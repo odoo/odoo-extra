@@ -286,7 +286,7 @@ class runbot_repo(models.Model):
             settings['builds'] = self.env['runbot.build'].browse(builds.ids)
 
             nginx_config = self.env['ir.ui.view'].render_template("runbot.nginx_config", settings)
-            os.makedirs([nginx_dir])
+            os.makedirs(nginx_dir)
             open(os.path.join(nginx_dir, 'nginx.conf'), 'w').write(nginx_config)
             try:
                 _logger.debug('reload nginx')
