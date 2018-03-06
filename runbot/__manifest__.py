@@ -19,6 +19,7 @@
         'templates/frontend.xml',
         'templates/build.xml',
         'templates/assets.xml',
+        'templates/nginx.xml',
         'data/runbot_cron.xml'
     ],
 }
