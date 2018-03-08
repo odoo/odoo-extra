@@ -7,7 +7,6 @@ from odoo import api, fields, models
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
-    runbot_root = fields.Char('Runbot root dir', help='Runbot root dir for storing repos')
     runbot_workers = fields.Integer('Total number of workers')
     runbot_running_max = fields.Integer('Maximum number of running builds')
     runbot_timeout = fields.Integer('Default timeout (in seconds)')
@@ -19,8 +18,7 @@ class ResConfigSettings(models.TransientModel):
     def get_values(self):
         res = super(ResConfigSettings, self).get_values()
         get_param = self.env['ir.config_parameter'].sudo().get_param
-        res.update(runbot_root=get_param('runbot.runbot_root'),
-                   runbot_workers=int(get_param('runbot.runbot_workers', default=6)),
+        res.update(runbot_workers=int(get_param('runbot.runbot_workers', default=6)),
                    runbot_running_max=int(get_param('runbot.runbot_running_max', default=75)),
                    runbot_timeout=int(get_param('runbot.runbot_timeout', default=1800)),
                    runbot_starting_port=int(get_param('runbot.runbot_starting_port', default=2000)),
@@ -32,7 +30,6 @@ class ResConfigSettings(models.TransientModel):
     def set_values(self):
         super(ResConfigSettings, self).set_values()
         set_param = self.env['ir.config_parameter'].sudo().set_param
-        set_param("runbot.runbot_root", self.runbot_root)
         set_param("runbot.runbot_workers", self.runbot_workers)
         set_param("runbot.runbot_running_max", self.runbot_running_max)
         set_param("runbot.runbot_timeout", self.runbot_timeout)
