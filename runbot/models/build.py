@@ -659,7 +659,7 @@ class runbot_build(models.Model):
             lock(lock_path)
         out = open(log_path, "w")
         _logger.debug("spawn: %s stdout: %s", ' '.join(cmd), log_path)
-        p = subprocess.Popen(cmd, stdout=out, stderr=out, preexec_fn=preexec_fn, shell=shell, env=env)
+        p = subprocess.Popen(cmd, stdout=out, stderr=out, preexec_fn=preexec_fn, shell=shell, env=env, close_fds=False)
         return p.pid
 
     def _github_status(self):
