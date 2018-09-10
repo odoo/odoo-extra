@@ -9,7 +9,7 @@ import time
 import odoo
 from odoo import http
 from odoo.tools.func import lazy_property
-
+from odoo.service import security
 _logger = logging.getLogger(__name__)
 
 def with_cursor(func):
@@ -118,8 +118,17 @@ class Root(http.Root):
         path = odoo.tools.config.session_dir
         _logger.debug('HTTP sessions stored in: %s', path)
         return werkzeug.contrib.sessions.FilesystemSessionStore(path, session_class=http.OpenERPSession)
-                        
+                    
+def check_session(session, env):
+    self = env['res.users'].browse(session.uid)
+    expected = unicode(self._compute_session_token(session.sid))
+    if expected and odoo.tools.misc.consteq(expected, session.session_token):
+        return True
+    self._invalidate_session_cache()
+    return False
+        
 # #Monkey patch of standard methods
 _logger.debug("Monkey patching sessions")
 http.session_gc = session_gc
 http.root = Root()
+security.check_session = check_session

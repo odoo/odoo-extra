@@ -15,6 +15,7 @@ Set this module in the server wide modules
     'version': '1.0',
 
     'depends': [
+        'base',
     ],
 
     'data': [
